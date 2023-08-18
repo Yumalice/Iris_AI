@@ -23,9 +23,9 @@ def read_data():
 
 # データをPyTorchでの学習に利用できる形式に変換
 def create_dataset_from_dataframe(IRIS_data, target_tag="sepal_length"):
-    # "tip"の列を目的にする
+    # "sepal_length"の列を目的にする
     target = torch.tensor(IRIS_data[target_tag].values, dtype=torch.float32).reshape(-1, 1)
-    # "tip"以外の列を入力にする
+    # "sepa_length"以外の列を入力にする
     input = torch.tensor(IRIS_data.drop(target_tag, axis=1).values, dtype=torch.float32)
     return input, target
 
@@ -88,10 +88,10 @@ train_model(nn_model, input, target)
 test_data = torch.tensor(
     [
         [
-         # sepal_length
-            3.2 ,  # sepal_width
-            1.4,  # petal_length
-            0.1,  # petal_width
+                 # sepal_length 今回はsepal_length6.0に近ければ学習できている。
+            3 ,  # sepal_width
+            4.8,  # petal_length
+            1.8,  # petal_width
             2,  # species
         ]
     ],
